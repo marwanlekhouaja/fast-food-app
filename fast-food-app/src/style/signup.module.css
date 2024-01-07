@@ -1,0 +1,22 @@
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-color: #eee;
+    flex-direction: column;
+}
+.input{
+    border-radius: 6px;
+    padding: 6px;
+    margin: 6px;
+    border:1px  solid black     
+}
+.body .title{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.button{
+    margin: 6px;
+}

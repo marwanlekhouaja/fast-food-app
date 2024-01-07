@@ -2,8 +2,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import styling from "../style/nav.module.css";
+import Cart from "./Cart";
 function Nav() {
   const styleImg = { width: "50px", height: "50px" };
   const [listLinks, setListLinks] = useState([
@@ -12,6 +13,8 @@ function Nav() {
     { id: 3, name: "Cart", active: false, path: "/cart" },
     { id: 4, name: "Contact", active: false, path: "/contact" },
   ]);
+
+  console.log(listLinks);
   const styleLink = {
     textDecoration: "none",
     fontFamily: "arial",
@@ -42,7 +45,7 @@ function Nav() {
               <NavLink
                 style={styleLink}
                 className={`${styling}`}
-                href={"/test"}
+                to={link.path}
                 onClick={() => activeLink(link.id)}
               >
                 {link.name}
@@ -51,18 +54,19 @@ function Nav() {
           ))}
         </div>
         <div className="fs-3">
-          <span
+          <Link
             className="me-2"
             style={{ cursor: "pointer" }}
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight"
-          >
+          > 
+            <Cart/>
             <FaCartShopping />
-          </span>
-          <span style={{ cursor: "pointer" }}>
+          </Link>
+          <Link to='/user/signup' style={{ cursor: "pointer" }}>
             <IoMdPerson />
-          </span>
+          </Link>
         </div>
       </nav>
     </div>

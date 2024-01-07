@@ -3,13 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice=createSlice({
     name:'actionsApp',
-    initialState:[],
+    initialState:{cart:[],user:[]},
     reducers:{
         addtocart:(state,action)=>{
-            state.push(action.payload)
+            state.cart.push(action.payload)
+        },
+        createAccount:(state,action)=>{
+            state.user.push(action.payload)
         }
     }
 })
 
-export const {addtocart}=slice.actions
+
+
+export const {addtocart,createAccount}=slice.actions
 export default slice.reducer

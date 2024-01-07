@@ -1,0 +1,13 @@
+
+.productImg{
+    transition: 1s all;
+}
+.productImg:hover{
+    transform: scale(1.2);
+} 
+.smallImg{
+    width: 100px;
+    margin: 8px;
+    height: 100px;
+    cursor: pointer;
+}

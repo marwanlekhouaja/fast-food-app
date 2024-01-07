@@ -4,6 +4,7 @@ import { products } from "../assets/fake-data/products";
 import {useDispatch} from 'react-redux'
 import Cart from "./Cart";
 import addtocart from '../stateMangement/slice'
+import styling from '../style/foods.module.css'
 const Foods = () => {
   const [listProducts, setListProducts] = useState([]);
   const styleImg = { width: "100px", height: "100px" };
@@ -61,7 +62,7 @@ const Foods = () => {
             >
               <div className="img align-items-center d-flex justify-content-center">
                 <Link to={`/foods/${product.title}`}>
-                  <img style={styleImg} src={product.image01} alt="" />
+                  <img className={`${styling.productImg}`} style={styleImg} src={product.image01} alt="" />
                 </Link>
               </div>
               <span className="m-2">{product.title}</span>
