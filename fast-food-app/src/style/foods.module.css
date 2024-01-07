@@ -11,3 +11,10 @@
     height: 100px;
     cursor: pointer;
 }
+
+.button{
+    background: none;
+    border:none;
+    padding: 4px;
+    font-size: 20px;
+}

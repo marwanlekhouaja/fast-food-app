@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../assets/fake-data/products";
 import {useDispatch} from 'react-redux'
 import Cart from "./Cart";
-import addtocart from '../stateMangement/slice'
+import { addtocart } from "../stateMangement/slice";
 import styling from '../style/foods.module.css'
 const Foods = () => {
   const [listProducts, setListProducts] = useState([]);
   const styleImg = { width: "100px", height: "100px" };
  
   const dispatch=useDispatch()
+  
 
   useEffect(() => {
     const fetchData = () => {
@@ -19,8 +20,28 @@ const Foods = () => {
   }, []);
 
   const addToCart=(product)=>{
-    dispatch(addtocart(product))
+    const data={...product,quantite:1,idOrder:Date.now()}
+    dispatch(addtocart(data))
   }
+
+  const refSearch=useRef()
+  const searchBar=()=>{
+  const searchValue = refSearch.current.value.toLowerCase();
+
+  // Check if the searchValue is empty
+  if (searchValue.length === "") {
+    // If empty, show all products
+    setListProducts(products);
+  } else {
+    // If not empty, filter the products based on the searchValue
+    const filterSearch = products.filter((product) =>
+      product.title.toLowerCase().includes(searchValue)
+    );
+    setListProducts(filterSearch);
+}
+
+  }
+
   return (
     <>
       <header style={{ position: "relative", overflow: "hidden" }}>
@@ -45,6 +66,8 @@ const Foods = () => {
           <input
             className="form-control"
             type="search"
+            ref={refSearch}
+            onChange={searchBar}
             placeholder="i'm looking for ...."
             name=""
             id=""
@@ -54,8 +77,10 @@ const Foods = () => {
           style={{ flexWrap: "wrap" }}
           className="mt-5 products d-flex align-items-center justify-content-around"
         >
-          {listProducts.map((product) => (
-            <div
+          {listProducts.length!==0? 
+          listProducts.map((product) => (
+            <div 
+              data-aos='fade-up'
               style={{ width: "250px" }}
               className="d-flex flex-column text-center m-2 p-3 card"
               key={product.id}
@@ -77,7 +102,7 @@ const Foods = () => {
                 <Cart/>
               </div>
             </div>
-          ))}
+          )) : <span>no foods found !</span> }
         </div>
       </section>
     </>

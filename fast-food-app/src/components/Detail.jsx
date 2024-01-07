@@ -2,12 +2,29 @@ import { useParams } from "react-router-dom";
 import { products } from "../assets/fake-data/products";
 import styling from '../style/foods.module.css'
 import { useRef,useState } from "react";
+import { useDispatch } from "react-redux";
+import { addtocart } from "../stateMangement/slice";
 function Detail() {
   const { name } = useParams();
+  const dispatch=useDispatch()
+  const [quantite,setQuantite]=useState(1)
   const refImg=useRef()
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const increment=()=>{
+    setQuantite(prev=>prev+1)
+  }
+  const decrement=()=>{
+    setQuantite(prev=>prev-1)
+    quantite<=1&&setQuantite(1)
+  }
   const changeImg=(src)=>{
     setSelectedImage(src);
+  }
+
+  const addToCart=(product)=>{
+    const data={...product,quantite:quantite,idOrder:Date.now()}
+    dispatch(addtocart(data))
   }
   return (
     <div className="d-flex mt-5 justify-content-evenly align-items-center">
@@ -53,7 +70,12 @@ function Detail() {
                   <span className="text-secondary">description</span> <br />
                   {/* {product.desc} */}
                 </p>
-                <button className="btn btn-danger w-50">Add To Cart</button>
+                <div className="quantite card shadow rounded d-flex align-items-center flex-row justify-content-around w-50 mb-3 mt-2">
+                  <button onClick={increment} className={`${styling.button}`}>+</button>
+                   <span>{quantite}</span>
+                  <button onClick={decrement} className={`${styling.button}`}>-</button>
+                </div>
+                <button className="btn btn-danger w-50" onClick={()=>addToCart(product)} >Add To Cart</button>
               </div>
             )
         )}

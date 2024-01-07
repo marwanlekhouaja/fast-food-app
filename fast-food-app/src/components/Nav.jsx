@@ -2,11 +2,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
 import { useState } from "react";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styling from "../style/nav.module.css";
 import Cart from "./Cart";
+import { useSelector } from "react-redux";
+import UserFeature from "./UserFeature";
+import "bootstrap/dist/js/bootstrap";
 function Nav() {
   const styleImg = { width: "50px", height: "50px" };
+  const selector = useSelector((state) => state.actionsApp.cart);
+  const userdata = useSelector((state) => state.actionsApp.user);
   const [listLinks, setListLinks] = useState([
     { id: 1, name: "Home", active: true, path: "/" },
     { id: 2, name: "Foods", active: false, path: "/foods" },
@@ -14,7 +19,6 @@ function Nav() {
     { id: 4, name: "Contact", active: false, path: "/contact" },
   ]);
 
-  console.log(listLinks);
   const styleLink = {
     textDecoration: "none",
     fontFamily: "arial",
@@ -30,7 +34,7 @@ function Nav() {
   };
   return (
     <div>
-      <nav className="d-flex p-2 align-items-center shadow justify-content-between">
+      <nav className={`d-flex p-2 align-items-center shadow justify-content-between ${styling.nav}`}>
         <div className="logo d-flex align-items-center">
           <img
             style={styleImg}
@@ -53,20 +57,45 @@ function Nav() {
             </div>
           ))}
         </div>
-        <div className="fs-3">
+        <div className="fs-3" style={{ position: "relative", display: "flex" }}>
           <Link
-            className="me-2"
+            className="me-2 "
             style={{ cursor: "pointer" }}
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight"
-          > 
-            <Cart/>
+          >
+            <Cart />
             <FaCartShopping />
           </Link>
-          <Link to='/user/signup' style={{ cursor: "pointer" }}>
-            <IoMdPerson />
-          </Link>
+          <span
+            style={{
+              width: "20px",
+              height: "20px",
+              fontSize: "15px",
+              borderRadius: "50%",
+              backgroundColor: "red",
+              padding: "2px",
+              position: "absolute",
+              right: "52%",
+              top: "5%",
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {selector.length}
+          </span>
+          {userdata.length == 0 ? (
+            <Link
+              to="/user/signup"
+              style={{ cursor: "pointer", marginLeft: "10px" }} >
+              <IoMdPerson />
+            </Link>
+          ) : (
+            <span style={{ cursor: "pointer", marginLeft: "10px" }}><UserFeature/></span>
+          )}
         </div>
       </nav>
     </div>
