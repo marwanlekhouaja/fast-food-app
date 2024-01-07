@@ -11,6 +11,7 @@ import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import CartComponent from '../components/CartComponent'
 import Profile from '../components/Profile'
+import Contact from '../components/Contact'
 const App = () => {
   useEffect(()=>{
     AOS.init({duration:1000})
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/user/signup' element={<SignUp/>}></Route>
         <Route path='/cart' element={<CartComponent/>}></Route>
         <Route path='/user/profile' element={<Profile/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
     </Routes>
     </BrowserRouter>
     </>

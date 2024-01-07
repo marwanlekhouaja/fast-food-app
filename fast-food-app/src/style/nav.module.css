@@ -1,5 +1,5 @@
-nav .active{
-    background-color: red;
+.active{
+    color: red;
     transition: 1s all;
 }
 a{

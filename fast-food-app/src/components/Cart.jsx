@@ -24,7 +24,7 @@ const Cart = () => {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body">
+        <div className="offcanvas-body" data-aos='fade-right'>
           {orders.length !== 0 ? (
             orders.map((order) => (
               <div key={order.idOrder}>

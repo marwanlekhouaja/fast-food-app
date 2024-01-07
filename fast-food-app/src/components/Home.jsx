@@ -25,7 +25,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="types d-flex align-items-center justify-content-evenly">
+      <div data-aos='fade-left' className="types d-flex align-items-center justify-content-evenly">
         <div className={`${styling.container} p-4 d-flex align-items-center rounded shadow`}>
           <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
             <FaHamburger />

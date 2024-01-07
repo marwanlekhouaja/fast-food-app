@@ -36,7 +36,7 @@ const seconds = currentDate.getSeconds();
 
   return (
     <div  className={`${styling.body}`}>
-      <h1 data-aos='fade-left' className={`${styling.title}`}>Sign up in marwan food </h1>
+      <h1 data-aos='fade-left' className={`${styling.title}`}>Create Account in marwan food </h1>
       <form action="" data-aos='fade-up' className="rounded bg-light shadow d-flex flex-column justify-content-center w-50 p-2">
         <span className='ms-2 mb-1'>Fullname</span>
         <input ref={refFullname} className={`${styling.input}`} placeholder='type your fullname here !' type="text" />

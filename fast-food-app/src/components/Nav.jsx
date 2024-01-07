@@ -41,14 +41,14 @@ function Nav() {
             src="https://food-delivery-ecommerce-app.netlify.app/static/media/res-logo.2f9021c4.png"
             alt=""
           />
-          <h3>marwan</h3>
+          <h3 className="ms-3">marwan</h3>
         </div>
         <div className="links d-flex">
           {listLinks.map((link) => (
             <div key={link.id}>
               <NavLink
                 style={styleLink}
-                className={`${styling}`}
+                className={`${link.active&&styling.active} me-4`}
                 to={link.path}
                 onClick={() => activeLink(link.id)}
               >
@@ -65,7 +65,6 @@ function Nav() {
             data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight"
           >
-            <Cart />
             <FaCartShopping />
           </Link>
           <span
@@ -98,6 +97,7 @@ function Nav() {
           )}
         </div>
       </nav>
+      <Cart/>
     </div>
   );
 }
