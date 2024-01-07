@@ -7,7 +7,7 @@ import { TbMeat } from "react-icons/tb";
 const Home = () => {
   return (
     <>
-      <div className="d-flex justify-content-around mt-4 align-items-center">
+      <div data-aos='fade-up' className="d-flex justify-content-around mt-4 align-items-center">
         <div className="content">
           <h5 className={styling.h5}>Easy way to make an order</h5>
           <h1 className={`${styling.title}`}>

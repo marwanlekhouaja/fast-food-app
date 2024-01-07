@@ -1,8 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styling from "../style/profile.module.css";
 import EditProfile from "./EditProfile";
+import { deleteAccount } from "../stateMangement/slice";
 const Profile = () => {
   const datauser = useSelector((state) => state.actionsApp.user);
+  const dispatch = useDispatch();
+  const removeAccount = (id) => {
+    const confirm = window.confirm(
+      "do you realy want to delete your account !"
+    );
+    if (confirm) {
+      dispatch(deleteAccount(id));
+    }
+  };
 
   console.log(datauser);
   return (
@@ -33,12 +43,17 @@ const Profile = () => {
                 >
                   edit profile
                 </button>
-                <button className="btn btn-danger">delete Account</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => removeAccount(user.id)}
+                >
+                  delete Account
+                </button>
               </div>
             </div>
           </div>
         ))}
-        <EditProfile/>
+        <EditProfile />
       </div>
     </>
   );
