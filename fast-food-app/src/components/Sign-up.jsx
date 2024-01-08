@@ -33,7 +33,7 @@ const day = currentDate.getDate();
         date:<div>{year} year / {month} month / {day} day</div>
     }
     dispatch(createAccount(data))
-    navigate('/foods')
+    navigate('/user/profile')
     
   }
 

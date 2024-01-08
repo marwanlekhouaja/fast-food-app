@@ -5,3 +5,14 @@
     text-transform: capitalize;
     padding: 8px;
 }
+
+.notfound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-size: 40px;
+    height: 70vh;
+    text-align: center;
+    flex-direction: column;
+}
