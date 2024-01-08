@@ -46,7 +46,7 @@ const Foods = () => {
     <>
       <header style={{ position: "relative", overflow: "hidden" }}>
         <img
-          style={{ height: "200px", width: "100%", backgroundSize: "cover" }}
+          style={{filter:'blur(2px)', height: "200px", width: "100%", backgroundSize: "cover" }}
           src="https://www.herofincorp.com/public/admin_assets/upload/blog/64b91a06ab1c8_food%20business%20ideas.webp"
           alt=""
         />

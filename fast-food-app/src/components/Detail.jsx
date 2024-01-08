@@ -4,6 +4,7 @@ import styling from '../style/foods.module.css'
 import { useRef,useState } from "react";
 import { useDispatch } from "react-redux";
 import { addtocart } from "../stateMangement/slice";
+import {motion} from 'framer-motion'
 function Detail() {
   const { name } = useParams();
   const dispatch=useDispatch()
@@ -26,7 +27,14 @@ function Detail() {
     const data={...product,quantite:quantite,idOrder:Date.now()}
     dispatch(addtocart(data))
   }
+
+  // functiion that have the access of show the description of the product or food
+  const [show,setShow]=useState(false)
+  const showDesc=()=>{
+    setShow(!show)
+  }  
   return (
+    <>
     <div className="d-flex mt-5 justify-content-evenly align-items-center">
       <div>
         {products.map(
@@ -81,6 +89,17 @@ function Detail() {
         )}
       </div>
     </div>
+
+    <div className="description container mt-4">
+      <h4 onClick={showDesc}  style={{cursor:'pointer',color:'red',fontFamily:'monospace'}}>description</h4>
+      <div style={{display:show?'flex':'none'}}>
+      {products.map((food)=>
+      food.title==name&&
+      <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1.5,delay:.3}} key={food.id} className="card p-2 w-75">{food.desc}</motion.p>
+      )}
+      </div>
+    </div>
+    </>
   );
 }
 

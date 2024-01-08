@@ -39,21 +39,22 @@ const Profile = () => {
   return (
     <>
       <h1 className="text-center">Profile</h1>
-      <div className=" shadow  p-2 card w-50 d-flex flex-column justify-content-center m-auto ">
+     
+      <div data-aos='fade-up' className=" shadow  p-2 card w-50 d-flex flex-column justify-content-center m-auto ">
         {datauser.map((user) => (
           <div key={user.id}>
             {alert&&<div style={{opacity:hide?'none':'flex'}} className="alert alert-success d-flex justify-content-between">your informations has been update succefully ! <button onClick={hideMessage} className="btn btn-close"></button></div>}
             <h2 className="text-center">Hi {user.fullname}</h2>
             <p className="rounded alert alert-light ">Your informations</p>
             <div className={`card p-2 bg-light  ${styling.info}`}>
-              <h4 className="card d-flex flex-row p-2">
+              <h4 className="card d-flex flex-row p-2 fs-5">
                 <span className="text-danger">Email</span> : {user.email}
               </h4>
-              <h4 className="card d-flex flex-row p-2">
+              <h4 className="card d-flex flex-row p-2 fs-5">
                 <span className="text-danger">number phone</span> 
                 {user.number}
               </h4>
-              <h4 className="d-flex card flex-row p-2 justify-content-between">
+              <h4 className="fs-5 d-flex card flex-row p-2 justify-content-between">
                 <span className="text-danger">date of create your account</span>
                 : {user.date}
               </h4>

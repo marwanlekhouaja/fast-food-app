@@ -2,11 +2,13 @@ import { useRef } from 'react';
 import styling from '../style/signup.module.css'
 import { useDispatch,  } from 'react-redux';
 import { createAccount } from '../stateMangement/slice';
+import { useNavigate } from 'react-router-dom';
 function SignUp() {
   const refFullname=useRef()
   const refEmail=useRef()
   const refPassword=useRef()
   const refPhone=useRef()  
+  const navigate=useNavigate()
   
   
   const currentDate = new Date();
@@ -15,9 +17,9 @@ function SignUp() {
 const year = currentDate.getFullYear();
 const month = currentDate.getMonth() + 1; // Note: months are zero-based, so add 1
 const day = currentDate.getDate();
-const hours = currentDate.getHours();
-const minutes = currentDate.getMinutes();
-const seconds = currentDate.getSeconds();
+// const hours = currentDate.getHours();
+// const minutes = currentDate.getMinutes();
+// const seconds = currentDate.getSeconds();
 
 
   const dispatch=useDispatch()
@@ -28,10 +30,11 @@ const seconds = currentDate.getSeconds();
         password:refPassword.current.value,
         number:refPhone.current.value,
         id:Date.now(),
-        date:<div>{year} / {month} / {day} : {hours} : {minutes} : {seconds}</div>
+        date:<div>{year} year / {month} month / {day} day</div>
     }
     dispatch(createAccount(data))
-    window.history.back()
+    navigate('/foods')
+    
   }
 
   return (

@@ -4,6 +4,7 @@ import { FaHamburger } from "react-icons/fa";
 import { FaPizzaSlice } from "react-icons/fa";
 import { PiBowlFoodBold } from "react-icons/pi";
 import { TbMeat } from "react-icons/tb";
+import Why from "./Why";
 const Home = () => {
   return (
     <>
@@ -51,6 +52,8 @@ const Home = () => {
           <span className="ms-3 fs-3">Row Meat</span>
         </div>
       </div>
+
+      <Why/>
       
     </>
   );

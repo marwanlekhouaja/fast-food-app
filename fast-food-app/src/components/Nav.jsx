@@ -41,7 +41,8 @@ function Nav() {
             src="https://food-delivery-ecommerce-app.netlify.app/static/media/res-logo.2f9021c4.png"
             alt=""
           />
-          <h3 className="ms-3">marwan</h3>
+          <h4 className="ms-1 mt-2" style={{fontFamily:'monospace'}}>marwan food</h4>
+          
         </div>
         <div className="links d-flex">
           {listLinks.map((link) => (
