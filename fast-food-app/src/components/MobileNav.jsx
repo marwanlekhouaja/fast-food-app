@@ -15,6 +15,7 @@ const MobileNav = () => {
   ]);
   const userdata = useSelector((state) => state.actionsApp.user);
   const selector = useSelector((state) => state.actionsApp.cart);
+  const styleImg = { width: "50px", height: "50px" };
 
   const styleLink = {
     textDecoration: "none",
@@ -30,9 +31,18 @@ const MobileNav = () => {
     );
   };
   return (
-    <div>
+    <div style={{backgroundColor:'transparent',zIndex:'999',position:'sticky'}} className="d-flex justify-content-between m-3">
+      <div className="logo d-flex align-items-center" >
+          <img
+            style={styleImg}
+            src="https://food-delivery-ecommerce-app.netlify.app/static/media/res-logo.2f9021c4.png"
+            alt=""
+          />
+          <h4 className="ms-1 mt-2" style={{fontFamily:'monospace'}}>marwan food</h4>
+          
+        </div>
       <button
-        style={{backgroundColor:'#eee',borderRadius:'50%',display:'flex',alignItems:'center',border:'none',cursor:'pointer',fontSize:'33px',padding:'4px',position:'absolute',right:'2%',top:'2%'}}
+        style={{backgroundColor:'#eee',borderRadius:'50%',display:'flex',alignItems:'center',border:'none',cursor:'pointer',fontSize:'33px',padding:'4px'}}
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight2"
@@ -42,7 +52,7 @@ const MobileNav = () => {
       </button>
 
       <div
-        className="offcanvas offcanvas-end"
+        className="offcanvas offcanvas-end w-75"
         id="offcanvasRight2"
         aria-labelledby="offcanvasRightLabel"
       >

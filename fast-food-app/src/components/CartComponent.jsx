@@ -11,7 +11,7 @@ function CartComponent() {
     }  
   return (
     <>
-    <table data-aos='fade-right' className="text-center table table-light container mt-3 shadow">
+    <table style={{overflow:'scrollX'}} data-aos='fade-right' className="text-center w-75 table table-light container mt-3 shadow">
         <thead>
             <tr>
                 <th>id order</th>

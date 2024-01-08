@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
 import { MdOutlineDone } from "react-icons/md";
 
 const Why = () => {
   const img = { maxWidth: "460px", maxHeight: "430px" };
+  const [body, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(()=>{
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  })
   const styleP = { fontSize: "14px", fontFamily: "arial" };
   return (
     <div className="row mt-5 d-flex align-items-center justify-content-around">
@@ -14,10 +28,10 @@ const Why = () => {
       />
       <div
         data-aos="fade-left"
-        className="content w-50 d-flex flex-column justify-content-center align-items-center"
+        className={`content ${body>750?'w-50':'w-75'} d-flex flex-column justify-content-center align-items-center`}
       >
         <h4>Why Tasty Treat?</h4>
-        <div style={styleP} className="col-sm-10 col-md-10">
+        <div style={styleP} className="col-12 col-md-10">
           Indulge in a culinary experience like no other with our food
           service.we are not just about meals; we are about crafting flavors
           that linger in your memory . Our dedicated team of chefs uses the

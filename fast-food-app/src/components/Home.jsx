@@ -8,11 +8,11 @@ import Why from "./Why";
 const Home = () => {
   return (
     <>
-      <div data-aos='fade-up' className="d-flex justify-content-around mt-4 align-items-center">
-        <div className="content">
+      <div data-aos='fade-up' className="row d-flex justify-content-around mt-4 align-items-center">
+        <div className="content col-sm-10 col-md-5 text-center mt-5 pt-4">
           <h5 className={styling.h5}>Easy way to make an order</h5>
           <h1 className={`${styling.title}`}>
-            <span className="text-danger">HUNGRY?</span> Just wait <br /> food
+            <span className="text-danger text-center">HUNGRY?</span> Just wait <br /> food
             at your door
           </h1>
           <div>
@@ -21,35 +21,35 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="col-sm-10 col-md-5 d-flex align-items-center justify-content-center">
           <img className={`${styling.img}`} src="firstimg.png" alt="" />
         </div>
       </div>
 
-      <div data-aos='fade-left' className="types d-flex align-items-center justify-content-evenly">
-        <div className={`${styling.container} p-4 d-flex align-items-center rounded shadow`}>
+      <div style={{flexWrap:'wrap'}} data-aos='fade-left' className="types d-flex align-items-center justify-content-evenly m-auto">
+        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
           <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
             <FaHamburger />
           </div>
-          <span className="ms-3 fs-3">Fastfood</span>
+          <span className="ms-3 fs-5">Fastfood</span>
         </div>
-        <div className={`${styling.container} p-3 d-flex align-items-center rounded shadow`}>
+        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
           <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
             <FaPizzaSlice />
           </div>
-          <span className="ms-3 fs-3">Pizza</span>
+          <span className="ms-3 fs-5">Pizza</span>
         </div>
-        <div className={`${styling.container} p-3 d-flex align-items-center rounded shadow`}>
+        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
           <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
             <PiBowlFoodBold />
           </div>
-          <span className="ms-3 fs-3">Asian food</span>
+          <span className="ms-3 fs-5">Asian food</span>
         </div>
-        <div className={`${styling.container} p-3 d-flex align-items-center rounded shadow`}>
+        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
           <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger `}>
             <TbMeat />
           </div>
-          <span className="ms-3 fs-3">Row Meat</span>
+          <span className="ms-3 fs-5">Row Meat</span>
         </div>
       </div>
 

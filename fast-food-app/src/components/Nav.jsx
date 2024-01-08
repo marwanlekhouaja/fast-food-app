@@ -34,7 +34,7 @@ function Nav() {
   };
   return (
     <div>
-      <nav className={`d-flex p-2 align-items-center shadow justify-content-between ${styling.nav}`}>
+      <nav className={`d-flex p-2 align-items-center shadow justify-content-between ${styling.nav} `}>
         <div className="logo d-flex align-items-center">
           <img
             style={styleImg}

@@ -30,7 +30,7 @@ const App = () => {
   })
 
   return (
-    <>
+    <div style={{overflow:'hidden'}}>
     <BrowserRouter>
     {body>=740?<Nav/>:<MobileNav/>}
     <Routes>
@@ -43,7 +43,7 @@ const App = () => {
         <Route path='/contact' element={<Contact/>}></Route>
     </Routes>
     </BrowserRouter>
-    </>
+    </div>
   )
 }
 
