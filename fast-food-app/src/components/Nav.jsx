@@ -1,10 +1,11 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { FaCartShopping } from "react-icons/fa6";
+import React from "react";
 import { IoMdPerson } from "react-icons/io";
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import styling from "../style/nav.module.css";
-import Cart from "./Cart";
+const Cart =React.lazy(()=>import("./Cart"))
 import { useSelector } from "react-redux";
 import UserFeature from "./UserFeature";
 import "bootstrap/dist/js/bootstrap";

@@ -1,10 +1,8 @@
 import styling from "../style/home.module.css";
 import { Link } from "react-router-dom";
-import { FaHamburger } from "react-icons/fa";
-import { FaPizzaSlice } from "react-icons/fa";
-import { PiBowlFoodBold } from "react-icons/pi";
-import { TbMeat } from "react-icons/tb";
-import Why from "./Why";
+import React from "react";
+const Why=React.lazy(()=>import("./HomeComponents/Why"))
+const PopularFood=React.lazy(()=>import("./PopularFood"))
 const Home = () => {
   return (
     <>
@@ -26,33 +24,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div style={{flexWrap:'wrap'}} data-aos='fade-left' className="types d-flex align-items-center justify-content-evenly m-auto">
-        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
-          <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
-            <FaHamburger />
-          </div>
-          <span className="ms-3 fs-5">Fastfood</span>
-        </div>
-        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
-          <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
-            <FaPizzaSlice />
-          </div>
-          <span className="ms-3 fs-5">Pizza</span>
-        </div>
-        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
-          <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger`}>
-            <PiBowlFoodBold />
-          </div>
-          <span className="ms-3 fs-5">Asian food</span>
-        </div>
-        <div className={`${styling.container} p-3 m-2 d-flex align-items-center rounded shadow`}>
-          <div className={`${styling.icon} p-3 fs-3 rounded-pill bg-danger `}>
-            <TbMeat />
-          </div>
-          <span className="ms-3 fs-5">Row Meat</span>
-        </div>
-      </div>
-
+      <PopularFood/>
       <Why/>
       
     </>

@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import React ,{ useEffect, useRef, useState, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../assets/fake-data/products";
 import {useDispatch} from 'react-redux'
 import Cart from "./Cart";
 import { addtocart } from "../stateMangement/slice";
 import styling from '../style/foods.module.css'
+const Category=React.lazy(()=>import("./Category"))
+import { Audio } from 'react-loader-spinner'
+
 const Foods = () => {
   const [listProducts, setListProducts] = useState([]);
   const styleImg = { width: "100px", height: "100px" };
@@ -41,6 +44,7 @@ const Foods = () => {
 }
 
   }
+  const loader=<div style={{height:'100dvh',display:'flex',justifyContent:'center',alignItems:'center'}}><Audio height="80" width="80"  radius="9" color="red" ariaLabel="loading" wrapperStyle wrapperClass /></div>
 
   return (
     <>
@@ -62,6 +66,7 @@ const Foods = () => {
         </h1>
       </header>
       <section className="container position-relative mt-4">
+        <Suspense fallback={loader}><Category/></Suspense>
         <div className="searchBar w-50 d-flex m-auto justify-content-center m-2 align-items-center">
           <input
             className="form-control"
@@ -95,6 +100,7 @@ const Foods = () => {
                 <span className="text-start">{product.price} $</span>
                 <button
                   className="btn btn-danger"
+                
                   onClick={()=>addToCart(product)}
                 >
                   Add To Cart

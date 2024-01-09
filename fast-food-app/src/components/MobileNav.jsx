@@ -52,7 +52,7 @@ const MobileNav = () => {
       </button>
 
       <div
-        className="offcanvas offcanvas-end w-75"
+        className="offcanvas offcanvas-end w-50"
         id="offcanvasRight2"
         aria-labelledby="offcanvasRightLabel"
       >
