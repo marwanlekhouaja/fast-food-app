@@ -1,0 +1,78 @@
+import { IoIosSend } from "react-icons/io";
+import styling from "../style/contact.module.css";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
+const Footer = () => {
+  const styleFooter={backgroundColor: "#fde4e4"}  
+  return (
+    <footer style={styleFooter}>
+      <div className={`row ${styling.footerC}`}>
+        <div data-aos="fade-right" className="col-10 col-md-3">
+          <p>
+            <span className="text-danger">Location</span>: hay inbiat ,sale ,
+            Maroc
+            <br />
+            <span className="text-danger">Phone</span>: 01712345678
+            <br />
+            <span className="text-danger">Email</span>: example@gmail.com
+          </p>
+        </div>
+        <div data-aos="fade-up" className="delivery time col-10 col-md-3">
+          <p>
+            <span className="text-danger">Sunday - Thursday</span> <br />
+            10:00am - 11:00pm
+          </p>
+          <p>
+            <span className="text-danger">Friday - Saturday </span>
+            <br />
+            Off day
+          </p>
+        </div>
+
+        <div data-aos="fade-left" className="news col-10 col-md-3">
+          <p className="text-danger">Subscribe our newsletter</p>
+          <form action="">
+            <input
+              type="email"
+              className={`${styling.input}`}
+              placeholder="enter your email here"
+            />
+            <Link to="/user/subscribe" className={`${styling.iconSend}`}>
+              <IoIosSend />
+            </Link>
+          </form>
+        </div>
+      </div>
+      <div
+        className={`${styling.socialMedia} container d-flex align-items-center justify-content-between`}
+      >
+        <div>
+          <p>
+            Copyright - 2024, website made by marouane lakhouaja. All Rights
+            Reserved.
+          </p>
+        </div>
+        <div className="d-flex align-items-center">
+          <p className="me-3">Follow</p>
+          <span className="fs-4 mb-3 me-3">
+            <FaInstagram />
+          </span>
+          <span className="fs-4 mb-3 me-3">
+            <FaGithub />
+          </span>
+          <span className="fs-4 mb-3 me-3">
+            <FaFacebookF />
+          </span>
+          <span className="fs-4 mb-3 ">
+            <FaLinkedin />
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

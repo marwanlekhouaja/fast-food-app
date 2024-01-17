@@ -1,6 +1,8 @@
 import styling from "../style/home.module.css";
 import { Link } from "react-router-dom";
 import React from "react";
+import Service from "./HomeComponents/Service";
+import Footer from "./Footer";
 const Why=React.lazy(()=>import("./HomeComponents/Why"))
 const PopularFood=React.lazy(()=>import("./PopularFood"))
 const Home = () => {
@@ -25,7 +27,10 @@ const Home = () => {
       </div>
 
       <PopularFood/>
+      <Service/>
       <Why/>
+      <Footer/>
+     
       
     </>
   );

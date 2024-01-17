@@ -11,8 +11,10 @@ const CartComponent=React.lazy(()=>import('../components/CartComponent'))
 const Profile=React.lazy(()=>import('../components/Profile'))
 const Contact=React.lazy(()=>import('../components/Contact'))
 const MobileNav=React.lazy(()=>import('../components/MobileNav'))
+// const Subscribe=React.lazy(()=>{import('../components/Subscribe')})
+import Subscribe from '../components/Subscribe'
 const Notfound=React.lazy(()=>import('../components/Notfound'))
-import { Audio } from 'react-loader-spinner'
+import { Audio} from 'react-loader-spinner'
 
 
 import AOS from 'aos';
@@ -37,7 +39,7 @@ const App = () => {
     };
   })
   
-  const loader=<div style={{height:'100dvh',display:'flex',justifyContent:'center',alignItems:'center'}}><Audio height="80" width="80"  radius="9" color="red" ariaLabel="loading" wrapperStyle wrapperClass /></div>
+  const loader=<div style={{height:'100dvh',display:'flex',justifyContent:'center',alignItems:'center'}}><Audio ight="80" width="80"  radius="9" color="red" ariaLabel="loading" wrapperStyle wrapperClass /></div>
   return (
     <div style={{overflow:'hidden'}}>
     <BrowserRouter>
@@ -50,6 +52,7 @@ const App = () => {
         <Route path='/cart' element={<Suspense fallback={loader}><CartComponent/></Suspense>}></Route>
         <Route path='/user/profile' element={<Suspense fallback={loader}><Profile/></Suspense>}></Route>
         <Route path='/contact' element={<Suspense fallback={loader}><Contact/></Suspense>}></Route>
+        <Route path='/user/subscribe' element={<Subscribe/>}></Route>
         <Route path='*' element={<Suspense fallback={loader}><Notfound/></Suspense>} ></Route>
     </Routes>
     </BrowserRouter>

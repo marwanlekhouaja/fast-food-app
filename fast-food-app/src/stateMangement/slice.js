@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "actionsApp",
-  initialState: { cart: [], user: [],showAlert:false},
+  initialState: { cart: [], user: [],showAlert:false,showToast:false},
   reducers: {
     addtocart: (state, action) => {
       state.cart.push(action.payload);
@@ -34,9 +34,12 @@ const slice = createSlice({
       state.showAlert=true
       
     },
+    notificationToast:(state,action)=>{
+      state.showToast=action.payload
+    }
   },
 });
 
-export const { addtocart, createAccount, removeOrder, deleteAccount,updateUser } =
+export const { addtocart, createAccount, removeOrder, deleteAccount,updateUser,notificationToast } =
   slice.actions;
 export default slice.reducer;

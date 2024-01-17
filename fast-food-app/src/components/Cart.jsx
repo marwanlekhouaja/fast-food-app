@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDelete } from "react-icons/ai";
 import styling from '../style/foods.module.css'
 import { removeOrder } from "../stateMangement/slice";
+import {motion} from 'framer-motion'
 const Cart = () => {
   const orders = useSelector((state) => state.actionsApp.cart);
   const dispatch=useDispatch()
@@ -27,7 +28,13 @@ const Cart = () => {
         <div className="offcanvas-body" data-aos='fade-right'>
           {orders.length !== 0 ? (
             orders.map((order) => (
-              <div key={order.idOrder}>
+              <motion.div 
+              layout
+              initial={{opacity:0}}
+              animate={{opacity:1}}
+              exit={{opacity:0}}
+              transition={{duration:.4}}
+              key={order.idOrder}>
                 <div className="d-flex align-items-center justify-content-between">
                   <div>
                     <img
@@ -49,7 +56,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <hr />
-              </div>
+              </motion.div>
             ))
           ) : (
             <div>no orders in the right now !</div>

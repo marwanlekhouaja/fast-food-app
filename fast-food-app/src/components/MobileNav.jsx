@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styling from "../style/nav.module.css";
 import { IoMenu } from "react-icons/io5";
-import { FaCartShopping } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
 import { useSelector } from "react-redux";
 import UserFeature from "./UserFeature";
@@ -80,15 +79,7 @@ const MobileNav = () => {
                        
           ))}
             <div className="fs-3" style={{ position: "relative", display: "flex",flexDirection:'column' ,justifyContent:'center',alignItems:'center'}}>
-          <Link
-            className="me-2 "
-            style={{ cursor: "pointer" }}
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-          >
-            <FaCartShopping />
-          </Link>
+          
           <span
             style={{
               width: "20px",

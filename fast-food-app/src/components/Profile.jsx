@@ -3,7 +3,7 @@ import styling from "../style/profile.module.css";
 import EditProfile from "./EditProfile";
 import { deleteAccount } from "../stateMangement/slice";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 const Profile = () => {
   const datauser = useSelector((state) => state.actionsApp.user);
   const dispatch = useDispatch();
@@ -23,15 +23,10 @@ const Profile = () => {
     }
   };
   const [hide, setHide] = useState(false);
-  useEffect(() => {
-    if (hide) {
-      const timeout = setTimeout(() => {
-        setHide(false);
-      }, 5000); // Adjust the timeout value as needed
-
-      return () => clearTimeout(timeout);
-    }
-  }, [hide]);
+  
+  useEffect(()=>{
+    alert?setHide(false):setHide(true)  
+  },[alert])
   const hideMessage = () => {
     setHide(true);
   };
@@ -46,10 +41,9 @@ const Profile = () => {
           >
             {alert && (
                 <div
-                  style={{ display: hide ? "none" : "flex" }}
-                  className="alert alert-success d-flex justify-content-between"
+                  className={`alert alert-success text-center ${hide?'d-none':'d-flex'} justify-content-between`}
                 >
-                  your informations has been update succefully !{" "}
+                  your informations has been update succefully !
                   <button
                     onClick={hideMessage}
                     className="btn btn-close"

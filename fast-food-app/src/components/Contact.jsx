@@ -4,6 +4,7 @@
 // import { FaLinkedin } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
 import styling from '../style/contact.module.css'
+import { Link } from "react-router-dom";
 const Contact = () => {
   
   return (
@@ -23,8 +24,8 @@ const Contact = () => {
         <div data-aos='fade-left' className="news col-10 col-md-3">
           <p className="text-danger">Subscribe our newsletter</p>
           <form action="">
-          <input type="email" className={`${styling.input}`} placeholder="enter your email here"/>
-          <button className={`${styling.iconSend}`}><IoIosSend/></button>
+          <input type="email" required className={`${styling.input}`} placeholder="enter your email here"/>
+          <Link to='/user/subscribe' className={`${styling.iconSend}`}><IoIosSend/></Link>
           </form>
         </div>
       </div>

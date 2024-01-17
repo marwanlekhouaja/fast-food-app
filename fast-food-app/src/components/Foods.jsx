@@ -1,15 +1,18 @@
 import React ,{ useEffect, useRef, useState, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../assets/fake-data/products";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import Cart from "./Cart";
-import { addtocart } from "../stateMangement/slice";
+import { addtocart, notificationToast } from "../stateMangement/slice";
 import styling from '../style/foods.module.css'
 const Category=React.lazy(()=>import("./Category"))
 import { Audio } from 'react-loader-spinner'
+import Toast from "./notification/Toast";
+// import Toast from "./notification/Toast";
 
 const Foods = () => {
   const [listProducts, setListProducts] = useState([]);
+  const notification=useSelector(state=>state.actionsApp.showToast)
   const styleImg = { width: "100px", height: "100px" };
  
   const dispatch=useDispatch()
@@ -25,6 +28,7 @@ const Foods = () => {
   const addToCart=(product)=>{
     const data={...product,quantite:1,idOrder:Date.now()}
     dispatch(addtocart(data))
+    dispatch(notificationToast(true))
   }
 
   const refSearch=useRef()
@@ -111,6 +115,7 @@ const Foods = () => {
           )) : <span>no foods found !</span> }
         </div>
       </section>
+      {notification&&<Toast/>}
     </>
   );
 };
